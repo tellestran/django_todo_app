@@ -26,16 +26,14 @@ def add_task(request):
     if request.method == "POST":
         title = request.POST.get('title')
         description = request.POST.get('description')
-        due_date = request.POST.get('due_date')
-        due_time = request.POST.get('due_time')
+        deadline = request.POST.get('deadline')
         completed = False
 
-        if title != "" and due_date != "" and due_time !="":
+        if title != "" and deadline != "" :
             task = Task(
                 title=title,
                 description=description,
-                due_date=due_date,
-                due_time=due_time,
+                deadline=deadline,
                 completed=completed
             )
             task.save()
